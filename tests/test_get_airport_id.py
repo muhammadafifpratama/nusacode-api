@@ -1,11 +1,8 @@
-import pytest
 import requests
-import json
-from data.data import base_url
+from config.config import *
 
 def test_get_airport_id():
-    url = f"{base_url}airports/KIX"
-    response = requests.get(url)
+    response = requests.get(f"{base_url}airports/KIX")
     json_response = response.json()
     assert response.status_code == 200
     assert json_response["data"]["id"] == "KIX"
